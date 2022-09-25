@@ -1,5 +1,5 @@
 library(ncdf4)
-precip <- nc_open("../data/NUDGING_ERA5_T127L95_v1.2_echam6.wisoqhdo_d.20000101-20031231.daymean.nc")
+precip <- nc_open("../data/NUDGING_ERA5_T127L95_v1.2_echam6.wisoq18o_d.20000101-20031231.daymean.nc")
 print(precip) # check that dims are lon-lat-time
 
 finda = precip$dim$lon$vals
