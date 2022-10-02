@@ -10,8 +10,17 @@ findb = precip$dim$lat$vals
 latlon <- data.frame(Latitude= findb, longitude = finda)
 head(latlon)
 # location of interest
-lon <- 16.363449  # longitude of location
-lat <- 48.210033 # latitude  of location
+# Ankara Lat 39.9334 N, Lon 32.8597 E
+# Avignon 43.9493 N,  4.8055 E
+# Cairo 30.0444 N, 31.2357 E
+# Lisbon 38.7223 N, -9.1393 W
+# Madrid 40.4168 N, -3.7038 W
+# Rabat 33.9716 N, -6.8498 W
+# Rehotov 31.8928 N, 34.8113 E
+# Vienna 48.2082 N, 16.3738 E
+
+lon <- 350.8607 # longitude of location
+lat <- 38.7223 # latitude  of location
 
 
 clon= finda[which(abs(precip$dim$lon$vals-lon)==min(abs(precip$dim$lon$vals-lon)))]
@@ -31,3 +40,14 @@ datafinal <- data.frame(date= precipdatadates, wisoq18o_d = obsoutput, lat = cla
 head(datafinal)
 
 # write.csv(datafinal,"csv\\extractdwisoq18o_d.csv", row.names = TRUE)
+#load existing Excel workbook
+header_style <- createStyle(halign = "center", textDecoration = "bold")
+
+wb <- loadWorkbook("Lisbon.xlsx")
+
+addWorksheet(wb, "wisoq18o_d")
+writeData(wb, sheet = "wisoq18o_d", datafinal, headerStyle = header_style,rowNames = FALSE)
+
+freezePane(wb, sheet = "wisoq18o_d", firstRow = TRUE)
+
+saveWorkbook(wb, "Lisbon.xlsx", overwrite = TRUE)
