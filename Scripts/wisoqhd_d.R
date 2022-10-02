@@ -19,8 +19,8 @@ head(latlon)
 # Rehotov 31.8928 N, 34.8113 E
 # Vienna 48.2082 N, 16.3738 E
 
-lon <- 350.8607 # longitude of location
-lat <- 38.7223 # latitude  of location
+lon <- 34.8113 # longitude of location
+lat <- 31.8928 # latitude  of location
 
 
 clon= finda[which(abs(precip$dim$lon$vals-lon)==min(abs(precip$dim$lon$vals-lon)))]
@@ -43,11 +43,11 @@ head(datafinal)
 #load existing Excel workbook
 header_style <- createStyle(halign = "center", textDecoration = "bold")
 
-wb <- loadWorkbook("Lisbon.xlsx")
+wb <- loadWorkbook("Rehotov.xlsx")
 
 addWorksheet(wb, "wisoqhdo_d")
 writeData(wb, sheet = "wisoqhdo_d", datafinal, headerStyle = header_style,rowNames = FALSE)
 
 freezePane(wb, sheet = "wisoqhdo_d", firstRow = TRUE)
 
-saveWorkbook(wb, "Lisbon.xlsx", overwrite = TRUE)
+saveWorkbook(wb, "Rehotov.xlsx", overwrite = TRUE)

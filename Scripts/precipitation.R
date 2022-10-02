@@ -20,8 +20,8 @@ head(latlon)
 # Rehotov 31.8928 N, 34.8113 E
 # Vienna 48.2082 N, 16.3738 E
 
-lon <- 350.8607 # longitude of location
-lat <- 39.9334 # latitude  of location
+lon <- 34.8113 # longitude of location
+lat <- 31.8928 # latitude  of location
 
 
 clon= finda[which(abs(precip$dim$lon$vals-lon)==min(abs(precip$dim$lon$vals-lon)))]
@@ -52,5 +52,5 @@ addWorksheet(wb, "Precip")
 writeData(wb, "Precip", datafinal, headerStyle = header_style)
 freezePane(wb, "Precip", firstRow = TRUE)
 setColWidths(wb, "Precip", cols = 1:ncol(datafinal), widths = "auto")
-saveWorkbook(wb, file = "Lisbon.xlsx", overwrite = TRUE)
+saveWorkbook(wb, file = "Rehotov.xlsx", overwrite = TRUE)
 # write.csv(datafinal,"csv\\extractdwisoq18o_d.csv", row.names = TRUE)
