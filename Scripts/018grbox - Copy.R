@@ -10,14 +10,77 @@
 
 library(readxl)
 library(tidyverse)
+library(hrbrthemes)
 
-exceldata = read_excel("csv/Reaarangement for graph.xlsx")                                                                            
+exceldata = read_excel("csv/Reaarangement for graphh2.xlsx")                                                                            
 dfdata = data.frame(exceldata)
-dfdata
+# dfdata
 
 dfdata %>% 
   ggplot(aes(x=City, y=Value, fill=factor(Type.of.measurement))) +
-  labs(title = "O18 values for modelled and city stations data", fill = "Measurement Type") + 
+  labs(title = "H2 values for modelled and city stations data", fill = "Measurement Type") + 
   xlab("Cities") + 
-  ylab("O18 Values") + 
+  ylab("H2 Values") + 
   geom_boxplot()
+
+
+ggplot(subset(dfdata, City %in% c("Ankara")), aes(x = Type.of.measurement, y = Value, fill = Type.of.measurement)) +
+  labs(title = "H2 values for modelled and city stations data for Ankara", fill = "Measurement Type") + 
+  xlab("") + 
+  ylab("H2 Values") + 
+  geom_boxplot()
+
+ggplot(subset(dfdata, City %in% c("Avignon")), aes(x = Type.of.measurement, y = Value, fill = Type.of.measurement)) +
+  labs(title = "H2 values for modelled and city stations data for Avignon", fill = "Measurement Type") + 
+  xlab("") + 
+  ylab("H2 Values") + 
+  geom_boxplot()
+
+ggplot(subset(dfdata, City %in% c("Cairo")), aes(x = Type.of.measurement, y = Value, fill = Type.of.measurement)) +
+  labs(title = "H2 values for modelled and city stations data for Cairo", fill = "Measurement Type") + 
+  xlab("") + 
+  ylab("H2 Values") + 
+  geom_boxplot()
+
+ggplot(subset(dfdata, City %in% c("Lisbon")), aes(x = Type.of.measurement, y = Value, fill = Type.of.measurement)) +
+  labs(title = "H2 values for modelled and city stations data for Lisbon", fill = "Measurement Type") + 
+  xlab("") + 
+  ylab("H2 Values") + 
+  geom_boxplot()
+
+ggplot(subset(dfdata, City %in% c("Madrid")), aes(x = Type.of.measurement, y = Value, fill = Type.of.measurement)) +
+  labs(title = "H2 values for modelled and city stations data for Madrid", fill = "Measurement Type") + 
+  xlab("") + 
+  ylab("H2 Values") + 
+  geom_boxplot()
+
+ggplot(subset(dfdata, City %in% c("Rabat")), aes(x = Type.of.measurement, y = Value, fill = Type.of.measurement)) +
+  labs(title = "H2 values for modelled and city stations data for Rabat", fill = "Measurement Type") + 
+  xlab("") + 
+  ylab("H2 Values") + 
+  geom_boxplot()
+
+ggplot(subset(dfdata, City %in% c("Rehotov")), aes(x = Type.of.measurement, y = Value, fill = Type.of.measurement)) +
+  labs(title = "H2 values for modelled and city stations data for Rehotov", fill = "Measurement Type") + 
+  xlab("") + 
+  ylab("H2 Values") + 
+  geom_boxplot()
+
+ggplot(subset(dfdata, City %in% c("Vienna")), aes(x = Type.of.measurement, y = Value, fill = Type.of.measurement)) +
+  labs(title = "H2 values for modelled and city stations data for Vienna", fill = "Measurement Type") + 
+  xlab("") + 
+  ylab("H2 Values") + 
+  geom_boxplot()
+
+plots.dir.path <- list.files(tempdir(), pattern="rs-graphics", full.names = TRUE); 
+plots.png.paths <- list.files(plots.dir.path, pattern=".png", full.names = TRUE)
+
+file.copy(from=plots.png.paths, to="plots/H2")
+
+# city <- subset(dfdata, City %in% c("Vienna"))
+# xdata <- subset(dfdata, City %in% c("Vienna") && Type.of.measurement == "Model")
+# ydata <- subset(dfdata, City %in% c("Vienna") && Type.of.measurement == "Station")
+# 
+# ggplot(city , aes( x = xdata , y = ydata )) + 
+#   geom_point( color="#69b3a2")
+
