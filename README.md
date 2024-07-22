@@ -41,6 +41,9 @@ water vapor and examine the insights collected from this study.
 
 
 
+![classesmap](https://github.com/user-attachments/assets/a198cb37-c3e7-4090-ab6c-19d631549090)
+
+
 ![image](https://github.com/user-attachments/assets/6c328836-4463-417a-b016-397b1cde5ebf)
 
 
